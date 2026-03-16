@@ -7,6 +7,11 @@
 @theme inline {
   --color-foreground: var(--foreground);
   --font-sans: var(--font-instrument-sans);
+  --color-red: #ee9f96;
+  --color-shadow: #7fa0b0;
+  --color-yellow: #feffb5;
+  --color-orange: #f6cea5;
+  --color-green: #aad2af;
 }
 
 body {
