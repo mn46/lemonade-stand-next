@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="relative bg-red flex justify-center items-center h-[25vh] lg:h-[40vh]">
+      <div className="relative bg-red flex justify-center items-center h-[25vh] md:h-[40vh]">
         <Image src={Text} alt="Lemonade stand text" className="max-w-[80vw]" />
         <Image
           src={Lemon}
