@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../types";
+import { useAppDispatch, useAppSelector } from "../hooks";
 import Image from "next/image";
 import { decrementAmount, incrementAmount } from "../features/cart/cartSlice";
 

@@ -1,10 +1,11 @@
 "use client";
 
 import { use } from "react";
-import { Drink, useAppDispatch } from "../types";
+import { Drink } from "../types";
 import Image from "next/image";
 import Link from "next/link";
 import { addToCart } from "../features/cart/cartSlice";
+import { useAppDispatch } from "../hooks";
 
 const DrinksList = ({ drinks }: { drinks: Promise<{ drinks: Drink[] }> }) => {
   const drinksList = use(drinks).drinks;
