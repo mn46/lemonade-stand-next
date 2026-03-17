@@ -8,10 +8,26 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      return [...state, { amount: 1, ...action.payload }];
+      const item = state.find(
+        (item) => item.idDrink === action.payload.idDrink,
+      );
+
+      if (item) {
+        item.amount++;
+      } else {
+        return [...state, { amount: 1, ...action.payload }];
+      }
     },
     addToCartWithAmount: (state, action) => {
-      return [...state, action.payload];
+      const item = state.find(
+        (item) => item.idDrink === action.payload.idDrink,
+      );
+
+      if (item) {
+        item.amount += action.payload.amount;
+      } else {
+        return [...state, action.payload];
+      }
     },
     removeFromCart: (state, action) => {
       return state.filter((item) => item.idDrink !== action.payload);
@@ -22,8 +38,6 @@ const cartSlice = createSlice({
       if (!item) return;
 
       item.amount++;
-
-      state.map((elem) => (elem.idDrink === item?.idDrink ? item : elem));
     },
     decrementAmount: (state, action) => {
       const item = state.find((item) => item.idDrink === action.payload);
@@ -31,8 +45,6 @@ const cartSlice = createSlice({
       if (item?.amount === 1 || !item) return;
 
       item.amount--;
-
-      state.map((elem) => (elem.idDrink === item?.idDrink ? item : elem));
     },
   },
 });
