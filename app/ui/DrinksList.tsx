@@ -1,12 +1,15 @@
 "use client";
 
 import { use } from "react";
-import { Drink } from "../types";
+import { Drink, useAppDispatch } from "../types";
 import Image from "next/image";
 import Link from "next/link";
+import { addToCart } from "../features/cart/cartSlice";
 
 const DrinksList = ({ drinks }: { drinks: Promise<{ drinks: Drink[] }> }) => {
   const drinksList = use(drinks).drinks;
+
+  const dispatch = useAppDispatch();
 
   return (
     <div className="my-16 mx-10 lg:mx-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 justify-items-center">
@@ -25,7 +28,12 @@ const DrinksList = ({ drinks }: { drinks: Promise<{ drinks: Drink[] }> }) => {
           </div>
           <div className="flex justify-between pt-5">
             <Link href={`/drinks/${drink.idDrink}`}>Read more</Link>
-            <button className="bg-green rounded-full px-5">Add to cart</button>
+            <button
+              className="bg-green rounded-full px-5"
+              onClick={() => dispatch(addToCart(drink))}
+            >
+              Add to cart
+            </button>
           </div>
         </div>
       ))}
