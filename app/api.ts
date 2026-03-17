@@ -9,3 +9,13 @@ export const getDrinks = async (): Promise<{ drinks: Drink[] }> => {
 
   return data;
 };
+
+export const getDrink = async (id: string): Promise<{ drinks: Drink[] }> => {
+  const res = await fetch(
+    `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`,
+  );
+
+  const data = await res.json();
+
+  return data;
+};
