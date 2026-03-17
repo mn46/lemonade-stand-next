@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
+import HeaderWithCart from "./ui/HeaderWithCart";
+import StoreProvider from "./StoreProvider";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
@@ -20,16 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${instrumentSans.variable} antialiased`}>
-        <header className="flex flex-row justify-between uppercase font-semibold px-10 py-5">
-          <nav className="space-x-10">
-            <Link href="/">Home</Link>
-            <Link href="/manageStore">Manage store</Link>
-          </nav>
-          <button className="uppercase">Cart</button>
-        </header>
-        <main>{children}</main>
-      </body>
+      <StoreProvider>
+        <body className={`${instrumentSans.variable} antialiased`}>
+          <HeaderWithCart />
+          <main>{children}</main>
+        </body>
+      </StoreProvider>
     </html>
   );
 }
