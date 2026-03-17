@@ -4,7 +4,11 @@ import Link from "next/link";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import Image from "next/image";
-import { decrementAmount, incrementAmount } from "../features/cart/cartSlice";
+import {
+  decrementAmount,
+  incrementAmount,
+  removeFromCart,
+} from "../features/cart/cartSlice";
 
 const HeaderWithCart = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -18,7 +22,7 @@ const HeaderWithCart = () => {
       <header className="flex flex-row justify-between uppercase font-semibold px-10 py-5">
         <nav className="space-x-10">
           <Link href="/">Home</Link>
-          <Link href="/manageStore">Manage store</Link>
+          <Link href="/manage-store">Manage store</Link>
         </nav>
         <button className="uppercase" onClick={() => setIsOpen(true)}>
           Cart
@@ -71,7 +75,10 @@ const HeaderWithCart = () => {
                             +
                           </button>
                         </div>
-                        <button className="bg-red rounded-full px-5">
+                        <button
+                          className="bg-red rounded-full px-5"
+                          onClick={() => dispatch(removeFromCart(item.idDrink))}
+                        >
                           remove
                         </button>
                       </div>
