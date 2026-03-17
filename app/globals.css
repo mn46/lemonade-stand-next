@@ -18,3 +18,16 @@ body {
   color: var(--foreground);
   font-family: "Instrument Sans" sans-serif;
 }
+
+.bg-lemons {
+  background-image: url("../public/lemons-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media (width <= 640px) {
+  .bg-lemons {
+    background-image: none;
+  }
+}
