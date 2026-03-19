@@ -24,9 +24,16 @@ const HeaderWithCart = () => {
           <Link href="/">Home</Link>
           <Link href="/manage-store">Manage store</Link>
         </nav>
-        <button className="uppercase" onClick={() => setIsOpen(true)}>
-          Cart
-        </button>
+        <div className="relative">
+          <button className="uppercase" onClick={() => setIsOpen(true)}>
+            Cart
+          </button>
+          {cart.length > 0 && (
+            <div className="absolute -bottom-2 -right-4 px-2 rounded-full bg-green grid place-items-center text-sm">
+              {cart.length}
+            </div>
+          )}
+        </div>
       </header>
 
       {isOpen && (
