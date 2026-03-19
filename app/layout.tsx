@@ -24,7 +24,7 @@ export default function RootLayout({
       <StoreProvider>
         <body className={`${instrumentSans.variable} antialiased`}>
           <HeaderWithCart />
-          <main>{children}</main>
+          <main className="mt-15">{children}</main>
         </body>
       </StoreProvider>
     </html>

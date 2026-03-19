@@ -19,7 +19,7 @@ const HeaderWithCart = () => {
 
   return (
     <div className="relative">
-      <header className="flex flex-row justify-between uppercase font-semibold px-10 py-5">
+      <header className="fixed top-0 left-0 w-full bg-white z-10 flex flex-row justify-between uppercase font-semibold px-10 py-5">
         <nav className="space-x-10">
           <Link href="/">Home</Link>
           <Link href="/manage-store">Manage store</Link>
