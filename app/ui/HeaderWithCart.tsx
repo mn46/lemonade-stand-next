@@ -19,7 +19,7 @@ const HeaderWithCart = () => {
 
   return (
     <div className="relative">
-      <header className="fixed top-0 left-0 w-full bg-white z-10 flex flex-row justify-between uppercase font-semibold px-10 py-5">
+      <header className="fixed top-0 left-0 w-full bg-white z-1 flex flex-row justify-between uppercase font-semibold px-10 py-5">
         <nav className="space-x-10">
           <Link href="/">Home</Link>
           <Link href="/manage-store">Manage store</Link>
@@ -37,7 +37,7 @@ const HeaderWithCart = () => {
       </header>
 
       {isOpen && (
-        <div className="fixed z-1 bg-shadow/70 top-0 left-0 w-screen h-screen grid place-items-center">
+        <div className="fixed z-2 bg-shadow/70 top-0 left-0 w-screen h-screen grid place-items-center">
           <div className="bg-white rounded-lg min-w-56 min-h-56 max-w-[80vw] max-h-[90vh] p-5 overflow-y-auto flex flex-col">
             <div className="flex flex-row justify-between">
               <h2 className="text-2xl">Cart</h2>
@@ -47,7 +47,7 @@ const HeaderWithCart = () => {
             </div>
 
             {cart.length > 0 ? (
-              <div>
+              <div className="space-y-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-8 mt-10">
                   {cart.map((item) => (
                     <div key={item.idDrink}>
@@ -93,9 +93,13 @@ const HeaderWithCart = () => {
                   ))}
                 </div>
 
-                <button className="bg-green px-5 py-1 text-xl rounded-full mt-10">
+                <Link
+                  href="/checkout"
+                  onClick={() => setIsOpen(false)}
+                  className="bg-green px-5 py-1 text-xl rounded-full"
+                >
                   checkout
-                </button>
+                </Link>
               </div>
             ) : (
               <div className="grow grid place-items-center">
