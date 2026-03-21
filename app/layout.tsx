@@ -21,12 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <StoreProvider>
-        <body className={`${instrumentSans.variable} antialiased`}>
+      <body className={`${instrumentSans.variable} antialiased`}>
+        <StoreProvider>
           <HeaderWithCart />
           <main className="mt-15">{children}</main>
-        </body>
-      </StoreProvider>
+        </StoreProvider>
+      </body>
     </html>
   );
 }
